@@ -50,11 +50,72 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+/**@todo write generatePassword function*/
+
+
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  
 
 }
 
+function generatePassword(){
+  var numberOfChar = parseInt(prompt("Enter Password length between 8 and 128"))
+  console.log(numberOfChar);
+  if (numberOfChar < 8 || numberOfChar > 128) {
+    alert("Please enter a number between 8 and 128");
+    return generatePassword()
+  }
+  var isSpecialCharacters = confirm("Would you like to use special characters")
+  console.log(isSpecialCharacters);
+  if (isSpecialCharacters = true) {
+
+  }
+  var isCapitol = confirm("Would you like to use capitol letters")
+  console.log(isCapitol);
+  if (isCapitol = true) {
+
+  }
+  var isLowercase = confirm("would you like to use lowercase letters")
+  console.log(isLowercase);
+  if (isLowercase = true) {
+
+  }
+  var isNumeric = confirm("would you like to use numbers")
+  console.log(isNumeric);
+  if (isNumeric = true) {
+    
+  }
+}
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword)
+  
+
+
+
+
+
+
+// document.getElementById("generate"); addEventListener ("click", function(generateBtn) {
+  
+  
+  
+
+
+  // var specChar = ["!", "@", "#", "$"];
+  // var numberOfChars = ""
+  // var isSpecChar = 
+
+  // addEventListener (generateBtn.prompt("Enter desired password length"));
+  
+ 
+    
+  // }
+  // return numberOfChars;
+  
+  
+  // if (isSpecChar === true) {
+    
+  //   return generatePassowrd()
+  // }
