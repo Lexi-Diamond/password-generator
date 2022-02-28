@@ -43,7 +43,12 @@
 
 // Assignment Code
 
+var specChar = ["!", "@", "#", "$", "%", "?", ".", "^", "&", "*"];
+var capitol = ["A", "B", "C"];
+var lowercase = ["a", "b", "c"];
+var number = ["1" , "2", "3", "4", "5"];
 
+var charPool = []
 
 var generateBtn = document.querySelector("#generate");
 
@@ -69,24 +74,46 @@ function generatePassword(){
   }
   var isSpecialCharacters = confirm("Would you like to use special characters")
   console.log(isSpecialCharacters);
-  if (isSpecialCharacters = true) {
+  if (isSpecialCharacters === true) {
+  
+    for (var i=0; i < specChar.length; i++) {
+      charPool.push(specChar[i])
 
+    }
   }
+
   var isCapitol = confirm("Would you like to use capitol letters")
   console.log(isCapitol);
-  if (isCapitol = true) {
+  if (isCapitol === true) {
+    for (var i=0; i < isCapitol.length; i++) {
+      charPool.push(isCapitol[i])
+
+    }
 
   }
   var isLowercase = confirm("would you like to use lowercase letters")
   console.log(isLowercase);
-  if (isLowercase = true) {
+  if (isLowercase === true) {
+    for (var i=0; i < isLowercase.length; i++) {
+      charPool.push(isLowercase[i])
+
+    }
 
   }
   var isNumeric = confirm("would you like to use numbers")
   console.log(isNumeric);
-  if (isNumeric = true) {
+  if (isNumeric === true) {
+    for (var i=0; i < isNumeric.length; i++) {
+      charPool.push(isNumeric[i])
+
+    }
     
   }
+  if (!isSpecialCharacters && !isCapitol && !isLowercase && !isNumeric) {
+    alert("Please select at least 1")
+    return generatePassword()
+  }
+
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
