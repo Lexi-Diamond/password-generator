@@ -43,11 +43,10 @@
 
 // Assignment Code
 
-var specChar = ["!", "@", "#", "$", "%", "?", ".", "^", "&", "*"];
-var capitol = ["A", "B", "C"];
-var lowercase = ["a", "b", "c"];
-var number = ["1" , "2", "3", "4", "5"];
-
+var specChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-', '.', '~', '|', '<', '>', '=', '-', '_', '/', ':', ';', '?', '[', ']', '{', '}', '~'];
+var capitol = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var charPool = []
 
 var generateBtn = document.querySelector("#generate");
@@ -59,8 +58,8 @@ function writePassword() {
 
 
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
+
   
 
 }
@@ -85,8 +84,8 @@ function generatePassword(){
   var isCapitol = confirm("Would you like to use capitol letters")
   console.log(isCapitol);
   if (isCapitol === true) {
-    for (var i=0; i < isCapitol.length; i++) {
-      charPool.push(isCapitol[i])
+    for (var i=0; i < capitol.length; i++) {
+      charPool.push(capitol[i])
 
     }
 
@@ -94,8 +93,8 @@ function generatePassword(){
   var isLowercase = confirm("would you like to use lowercase letters")
   console.log(isLowercase);
   if (isLowercase === true) {
-    for (var i=0; i < isLowercase.length; i++) {
-      charPool.push(isLowercase[i])
+    for (var i=0; i < lowercase.length; i++) {
+      charPool.push(lowercase[i])
 
     }
 
@@ -103,8 +102,8 @@ function generatePassword(){
   var isNumeric = confirm("would you like to use numbers")
   console.log(isNumeric);
   if (isNumeric === true) {
-    for (var i=0; i < isNumeric.length; i++) {
-      charPool.push(isNumeric[i])
+    for (var i=0; i < number.length; i++) {
+      charPool.push(number[i])
 
     }
     
@@ -112,14 +111,31 @@ function generatePassword(){
   if (!isSpecialCharacters && !isCapitol && !isLowercase && !isNumeric) {
     alert("Please select at least 1")
     return generatePassword()
-  }
-
+  } 
+  var passwordString = ""
+  if (charPool.length > 0) {
+    console.log(charPool)
+    for (var i=0; i < numberOfChar; i++) {
+  passwordString += (charPool[Math.floor(Math.random() * charPool.length - 1)])
+  }  
 }
+return passwordString
+}
+// console.log(charPool)
+
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
   
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
+//   passwordText.value = password;
+  
+// }
 
-
+// generatePassword();
 
 
 
