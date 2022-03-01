@@ -50,28 +50,23 @@ var number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var charPool = []
 
 var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-/**@todo write generatePassword function*/
-
-
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-
-  
-
 }
 
 function generatePassword(){
-  var numberOfChar = parseInt(prompt("Enter Password length between 8 and 128"))
+  var numberOfChar = parseInt(prompt("Enter desired password length."))
   console.log(numberOfChar);
   if (numberOfChar < 8 || numberOfChar > 128) {
-    alert("Please enter a number between 8 and 128");
+    alert("Please enter a number between 8 and 128.");
     return generatePassword()
   }
-  var isSpecialCharacters = confirm("Would you like to use special characters")
+  var isSpecialCharacters = confirm("Would you like to use special characters?")
   console.log(isSpecialCharacters);
   if (isSpecialCharacters === true) {
   
@@ -81,35 +76,32 @@ function generatePassword(){
     }
   }
 
-  var isCapitol = confirm("Would you like to use capitol letters")
+  var isCapitol = confirm("Would you like to use capitol letters?")
   console.log(isCapitol);
   if (isCapitol === true) {
     for (var i=0; i < capitol.length; i++) {
       charPool.push(capitol[i])
 
     }
-
   }
-  var isLowercase = confirm("would you like to use lowercase letters")
+  var isLowercase = confirm("Would you like to use lowercase letters?")
   console.log(isLowercase);
   if (isLowercase === true) {
     for (var i=0; i < lowercase.length; i++) {
       charPool.push(lowercase[i])
 
     }
-
   }
-  var isNumeric = confirm("would you like to use numbers")
+  var isNumeric = confirm("Would you like to use numbers?")
   console.log(isNumeric);
   if (isNumeric === true) {
     for (var i=0; i < number.length; i++) {
       charPool.push(number[i])
 
     }
-    
   }
   if (!isSpecialCharacters && !isCapitol && !isLowercase && !isNumeric) {
-    alert("Please select at least 1")
+    alert("Please confirm at least one option.")
     return generatePassword()
   } 
   var passwordString = ""
@@ -119,46 +111,5 @@ function generatePassword(){
   passwordString += (charPool[Math.floor(Math.random() * charPool.length - 1)])
   }  
 }
-return passwordString
+return passwordString;
 }
-// console.log(charPool)
-
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword)
-  
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-//   passwordText.value = password;
-  
-// }
-
-// generatePassword();
-
-
-
-
-// document.getElementById("generate"); addEventListener ("click", function(generateBtn) {
-  
-  
-  
-
-
-  // var specChar = ["!", "@", "#", "$"];
-  // var numberOfChars = ""
-  // var isSpecChar = 
-
-  // addEventListener (generateBtn.prompt("Enter desired password length"));
-  
- 
-    
-  // }
-  // return numberOfChars;
-  
-  
-  // if (isSpecChar === true) {
-    
-  //   return generatePassowrd()
-  // }
