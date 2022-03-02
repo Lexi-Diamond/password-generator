@@ -35,29 +35,28 @@
 // else alert user "none selected" and return to main function call
 
 
-
-
-
-
-
-
 // Assignment Code
 
+//* arrays for the caracter, capitol. lowercase and number as well as an empty array to store users choices in*// 
 var specChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-', '.', '~', '|', '<', '>', '=', '-', '_', '/', ':', ';', '?', '[', ']', '{', '}', '~'];
 var capitol = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var charPool = []
 
+//*generates click button for writing the password*//
 var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
 
-// Write password to the #password input
+//*function to generate the password*//
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
+
+//*created one function to take the user through all of the prompts first prompt is for password length and asks user how long they want their password.
+//*if the user enters less than 8 or more than 128 it alerts them to choose within parameter and takes them back to the beginning of the function*//
 
 function generatePassword(){
   var numberOfChar = parseInt(prompt("Enter desired password length."))
@@ -66,6 +65,8 @@ function generatePassword(){
     alert("Please enter a number between 8 and 128.");
     return generatePassword()
   }
+
+  //*prompts user to select weather they want special characters. If they do it stores them in empty charPool variable.*//
   var isSpecialCharacters = confirm("Would you like to use special characters?")
   console.log(isSpecialCharacters);
   if (isSpecialCharacters === true) {
@@ -76,6 +77,7 @@ function generatePassword(){
     }
   }
 
+  //*prompts user to select weather they want capitol letters. If they do it stores them in empty charPool variable.*//
   var isCapitol = confirm("Would you like to use capitol letters?")
   console.log(isCapitol);
   if (isCapitol === true) {
@@ -84,6 +86,8 @@ function generatePassword(){
 
     }
   }
+
+  //*prompts user to select weather they want lowercase letters. If they do it stores them in empty charPool variable.*//
   var isLowercase = confirm("Would you like to use lowercase letters?")
   console.log(isLowercase);
   if (isLowercase === true) {
@@ -92,6 +96,8 @@ function generatePassword(){
 
     }
   }
+
+  //*prompts user to select weather they want numbers. If they do it stores them in empty charPool variable*//
   var isNumeric = confirm("Would you like to use numbers?")
   console.log(isNumeric);
   if (isNumeric === true) {
@@ -100,10 +106,14 @@ function generatePassword(){
 
     }
   }
+
+  //*If the user says no to special characters, capitol letters, lowercase letters and numbers this alerts them to choose at least one option and returns to generate password function*//
   if (!isSpecialCharacters && !isCapitol && !isLowercase && !isNumeric) {
     alert("Please confirm at least one option.")
     return generatePassword()
   } 
+
+  //*Generates random password bassed on users desired password length*//
   var passwordString = ""
   if (charPool.length > 0) {
     console.log(charPool)
@@ -111,5 +121,6 @@ function generatePassword(){
   passwordString += (charPool[Math.floor(Math.random() * charPool.length - 1)])
   }  
 }
+//*populates password in password field*//
 return passwordString;
 }
