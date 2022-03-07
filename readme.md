@@ -3,7 +3,7 @@ Git Hub: https://github.com/Lexi-Diamond/password-generator.git
 Live URL:  https://lexi-diamond.github.io/password-generator/
 
 Screenshot
-![Screenshot](screenshot.png);
+![Screenshot](./assets/screenshot.png);
 
 This project is a password generator. 
 When the user clicks generate password they are presented with a pop up window that asks them a serries of questions:
